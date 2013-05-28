@@ -1,7 +1,7 @@
 class Post < ActiveRecord::Base
-  attr_accessible :content, :name, :title
+  attr_accessible :content, :title
   
-  belongs_to :author
+  belongs_to :user
   
   def hello
   "Hello #{self.name}"
