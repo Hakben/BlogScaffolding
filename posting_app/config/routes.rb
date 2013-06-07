@@ -1,14 +1,14 @@
 PostingApp::Application.routes.draw do
-  resources :comments
+  
 
 
   resources :users
 
 
-  resources :authors
 
-
-  resources :posts
+  resources :posts do
+    resources :comments, only: [:create, :destroy]
+  end
 
 
   # The priority is based upon order of creation:
@@ -60,7 +60,7 @@ PostingApp::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'welcome#index'
+  root :to => 'posts#index'
 
   # See how all your routes lay out with "rake routes"
 
