@@ -1,0 +1,60 @@
+
+ 
+ @import "bootstrap";
+ 
+nav {
+  overflow: auto;
+
+  ul {
+    list-style: none;
+    padding: 0px;
+
+    li {
+      float: left;
+      padding-right: 10px;
+    }
+  }
+}
+
+$bg-color: white;
+$link-color: #003c46;
+
+a {
+  color: $link-color;
+  font-weight: bold;
+  text-decoration: none;
+
+  &:hover {
+    color: lighten($link-color, 10%);
+  }
+}
+
+@mixin text-font { font-family: 'Cantarell', sans-serif; }
+@mixin title-font { font-family: 'Playfair Display SC', serif; }
+
+body {
+  background-color: $bg-color;
+  @include text-font;
+}
+
+h1 { 
+  @include title-font;
+  font-size: 46px; 
+  margin: 20px 0 20px;
+}
+h2 { 
+  @include title-font;
+  font-size: 30px; 
+  margin: 10px 0 10px;
+}
+h3 { 
+  @include title-font;
+  font-size: 22px; 
+  margin: 10px 0 10px;
+}
+
+h4 {
+  @include title-font;
+  font-size: 18px;
+  margin: 5px 0 0;
+} 
