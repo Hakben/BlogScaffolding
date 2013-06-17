@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+
+  #before_filter :set_current_user
+
   # GET /posts
   # GET /posts.json
   def index
@@ -8,7 +11,7 @@ class PostsController < ApplicationController
       format.html # index.html.erb
       format.json { render json: @posts }
     end
-  end
+  end  
 
   # GET /posts/1
   # GET /posts/1.json

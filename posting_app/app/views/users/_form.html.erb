@@ -1,6 +1,6 @@
 <%= form_for(@user) do |f| %>
 
-<% = render "shared/error_messages", :target => @user %>
+<%= render "shared/error_message", :target => @user %>
 
   <div class="field">
     <%= f.label :name %><br />
