@@ -8,6 +8,23 @@
 </head>
 <body>
 
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="posts/new">Log@Post</a>
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+          <li class="active"><%= link_to "See The Posts", posts_path %></li>
+          <% if current_user %>
+          <%= link_to "Logout", destroy_user_session_path, class: 'btn', method: :delete %>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>  
+
+<div class="container">  
 <% if flash[:notice] %>
 <%= flash[:notice] %>
 <% end %>
@@ -16,6 +33,7 @@
 <% end %>
 
 <%= yield %>
+</div>
 
 </body>
 </html>

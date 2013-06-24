@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 
-  #before_filter :set_current_user
+before_filter :authenticate_user!, :only => [:new, :edit, :create, :update, :destroy]
+#before_filter :set_current_user
 
   # GET /posts
   # GET /posts.json
@@ -45,8 +46,7 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    @post = Post.new(params[:post])
-    @post.user = User.first
+    @post = current_user.posts.build(params[:post])
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }

@@ -4,10 +4,11 @@ class ApplicationController < ActionController::Base
   #private 
 
   #def set_current_user
-  #    if session[:current_user_id]
-  #       @user = User.find(session[:current_user_id])
-  #    else
-  #       redirect_to root_url   
-  #    end
+      #if session[:current_user_id]
+         #@user = User.find(session[:current_user_id])
+      #else
+         #redirect_to @user 
+         #redirect_to root_url  
+      #end
   #end
 end

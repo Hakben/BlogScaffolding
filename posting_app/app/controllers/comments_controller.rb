@@ -1,4 +1,7 @@
 class CommentsController < ApplicationController
+
+
+  before_filter :authenticate_user!, except: :show
   # GET /comments
   # GET /comments.json
   def index
@@ -28,7 +31,7 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comments = @post.comments.all
     @comment = @post.comments.build(params[:comment])
-    @comment.user = User.first
+    @comment.user = current_user
 
     if @comment.save
       flash[:notice] = "Comment created"

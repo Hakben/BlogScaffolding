@@ -12,7 +12,7 @@
 <%= render partial: 'comments/form' %>
 
 <% @comments.each do |comment| %>
-  <div><%= comment.user.name %> said <%= comment.comment %><div>
+  <div><%= comment.user.name || comment.user.email %> said <%= comment.comment %><div>
 <% end %>
 
 <hr>
