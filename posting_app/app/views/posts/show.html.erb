@@ -1,3 +1,14 @@
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+    $(document).ready(function(){
+
+        $(".buttons").click(function () {
+        var divname= this.value;
+          $("#"+divname).slideToggle().siblings().hide("slow");
+        });
+
+      });
+</script> 
 
 <p>
   <b>Title:</b>
@@ -12,9 +23,26 @@
 <%= render partial: 'comments/form' %>
 
 <% @comments.each do |comment| %>
-  <div><%= comment.user.name || comment.user.email %> said <%= comment.comment %><div>
+  <a onclick ="javascript:ShowHide('HiddenDiv')" href="javascript:;" >Show/Hide</a>
+  <div class="mid" id="HiddenDiv" style="DISPLAY: block" >
+    <%= comment.user.name || comment.user.email %> said <%= comment.comment %>
+  </div>
 <% end %>
 
 <hr>
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
+
+<script language="JavaScript">
+function ShowHide(divId)
+{
+if(document.getElementById(divId).style.display == 'none')
+{
+document.getElementById(divId).style.display='block';
+}
+else
+{
+document.getElementById(divId).style.display = 'none';
+}
+}
+</script>
